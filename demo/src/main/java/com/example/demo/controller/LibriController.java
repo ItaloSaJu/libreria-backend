@@ -40,7 +40,7 @@ public class LibriController {
 	@GetMapping("/libri/{id}")
 	public ResponseEntity<?> getById(@PathVariable Long id){
 		 Optional<Libri> user = userService.findById(id);
-		 if(!user.isPresent()) {
+		 if(!user.isPresent()) { 
 			return ResponseEntity.notFound().build();
 		 } 
 		 return  ResponseEntity.ok(user);
