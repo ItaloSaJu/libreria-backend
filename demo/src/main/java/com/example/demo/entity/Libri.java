@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -8,22 +7,27 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
 public class Libri {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idLibri;
 	
 	@Column
-	private String nome;
+	private String nomeLibro;
 	
 	@Column
-	private String description;
+	private String autoreLibro;
 	
-	private int prezzo;
+	@Column
+	private String descriptionLibro;
+	
+	private int prezzoLibro;
+	
+	@Column
+	private String imageLibro;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Category categoria;
@@ -31,36 +35,58 @@ public class Libri {
 	public Libri() {
 	}
 
-	public Long getId() {
-		return id;
+	
+
+	public Long getIdLibri() {
+		return idLibri;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+
+
+	public void setIdLibri(Long idLibri) {
+		this.idLibri = idLibri;
 	}
 
-	public String getNome() {
-		return nome;
+
+
+	public String getNomeLibro() {
+		return nomeLibro;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomeLibro(String nomeLibro) {
+		this.nomeLibro = nomeLibro;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getAutoreLibro() {
+		return autoreLibro;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setAutoreLibro(String autoreLibro) {
+		this.autoreLibro = autoreLibro;
 	}
 
-	public int getPrezzo() {
-		return prezzo;
+	public String getDescriptionLibro() {
+		return descriptionLibro;
 	}
 
-	public void setPrezzo(int prezzo) {
-		this.prezzo = prezzo;
+	public void setDescriptionLibro(String descriptionLibro) {
+		this.descriptionLibro = descriptionLibro;
+	}
+
+	public int getPrezzoLibro() {
+		return prezzoLibro;
+	}
+
+	public void setPrezzoLibro(int prezzoLibro) {
+		this.prezzoLibro = prezzoLibro;
+	}
+
+	public String getImageLibro() {
+		return imageLibro;
+	}
+
+	public void setImageLibro(String imageLibro) {
+		this.imageLibro = imageLibro;
 	}
 
 	public Category getCategoria() {
@@ -71,6 +97,8 @@ public class Libri {
 		this.categoria = categoria;
 	}
 
+	
+	
 	
 	
 	
