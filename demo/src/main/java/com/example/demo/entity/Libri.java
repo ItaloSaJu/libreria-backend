@@ -1,5 +1,11 @@
 package com.example.demo.entity;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -7,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Libri {
@@ -31,6 +38,10 @@ public class Libri {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Category categoria;
+	
+	@OneToMany(mappedBy = "libro", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Set<Commento> commento = new LinkedHashSet<>();
 	
 	public Libri() {
 	}
@@ -97,6 +108,19 @@ public class Libri {
 		this.categoria = categoria;
 	}
 
+
+
+	public Set<Commento> getCommento() {
+		return commento;
+	}
+
+
+
+	public void setCommento(Set<Commento> commento) {
+		this.commento = commento;
+	}
+
+	
 	
 	
 	

@@ -24,6 +24,8 @@ public class Category {
 	@OneToMany(mappedBy = "categoria",cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Libri> libri = new LinkedHashSet<>();
+	
+	
 
 	public Category() {
 		super();
