@@ -8,4 +8,5 @@ import com.example.demo.entity.Category;
 @Repository
 public interface CategoryRepo extends JpaRepository<Category, Long>{
 
+	
 }

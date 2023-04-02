@@ -36,6 +36,9 @@ public class Libri {
 	@Column
 	private String imageLibro;
 	
+	private Boolean usato;
+	private Boolean nuovo;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Category categoria;
 	
@@ -119,6 +122,32 @@ public class Libri {
 	public void setCommento(Set<Commento> commento) {
 		this.commento = commento;
 	}
+
+
+
+	public Boolean getUsato() {
+		return usato;
+	}
+
+
+
+	public void setUsato(Boolean usato) {
+		this.usato = usato;
+	}
+
+
+
+	public Boolean getNuovo() {
+		return nuovo;
+	}
+
+
+
+	public void setNuovo(Boolean nuovo) {
+		this.nuovo = nuovo;
+	}
+
+
 
 	
 	
